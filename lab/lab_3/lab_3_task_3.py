@@ -1,13 +1,14 @@
-def mtrx_inpt(mtrx):
-  t = []
-  while t != [0]:
-    t = list(map(int, input().split()))
-    mtrx.append(t)
-  del mtrx[-1]
-a = []
-mtrx_inpt(a)
-for i in range(len(a[0])):
-  t = []
-  for j in range(len(a)):
-    t.append(a[j][i])
-  print(max(t))
+import numpy as np
+print("Size")
+x, y = map(int, input().split())
+a = np.zeros((x, y))
+b = np.zeros((y, x))
+print("A")
+for i in range(x):
+  t = list(map(int, input().split()))
+  for j in range(y):
+    a[i, j] = t[j]
+    b[j, i] = t[j]
+for el in b:
+  print(max(el))
+      

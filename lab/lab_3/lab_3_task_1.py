@@ -1,18 +1,20 @@
-a = []
-b = []
-c = []
-def mtrx_inpt(mtrx):
-  t = []
-  while t != [0]:
-    t = list(map(int, input().split()))
-    mtrx.append(t)
-  del mtrx[-1]
-mtrx_inpt(a)
-mtrx_inpt(b)
-for i in range(len(a)):
-  for j in range(len(a[i])):
-    if a[i][j] >= b[i][j]:
-      c.append(a[i][j])
-    else:
-      c.append(b[i][j])
+import numpy as np
+print("Size")
+x, y = map(int, input().split())
+a = np.zeros((x, y))
+b = np.zeros((x, y))
+c = np.zeros((x, y))
+print("A")
+for i in range(x):
+  t = list(map(int, input().split()))
+  for j in range(y):
+    a[i, j] = t[j]
+print("B")
+for i in range(x):
+  t = list(map(int, input().split()))
+  for j in range(y):
+    b[i, j] = t[j]
+    c[i, j] = max(a[i, j], b[i, j])
 print(c)
+
+
